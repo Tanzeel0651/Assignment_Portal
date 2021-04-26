@@ -1,0 +1,14 @@
+<h1>Welcome</h1>
+<% if logged_in? %>    
+	<h1>You are Logged In, <%= current_user.first_name %></h1>
+<%end%>
+
+
+<h2 align='Left'> Login As : </h2>
+<%= button_to "Student", '/login', method: :get%>
+<br />
+<%= button_to "Teacher", '/login_', method: :get%>
+<h2 align='Left'> Sign Up As : </h2>
+<%= button_to "Student", '/students/new', method: :get%>
+<br />
+<%= button_to "Teacher", '/teachers/new', method: :get%>
