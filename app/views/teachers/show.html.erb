@@ -1,8 +1,27 @@
-<h2>Welcome to the page of <%= @user.first_name %></h2>
-<h3>This is my page!!!</h3>
+<h1 align="center">Evaluation Portal</h1>
+<div align="right">
+    <h3>Name: <%= @teacher.first_name.capitalize%> <%= @teacher.last_name.capitalize %></h3>
+    <h4>ID: <%= @teacher.id %></h4>
+</div>
 
-<h1>Welcome to the Evaluation</h1>
+<table style="width:85%">
+    <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Score</th>
+    </tr>
+    <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+    <% @student.each do |s| %>
+        <tr>
+            <td align="center"><%=s.first_name%></td>
+            <td align="center"><%=s.last_name%></td>
+            <td align="center"><%=s.score%></td>
+        </tr>
+        <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+    <%end%>
+</table>
 <br />
 <br />
 <%=button_to "New Assignment", new_corpu_path, method: :get %>
+<br />
 <%= button_to "Logout", logout__path ,method: :delete %>

@@ -17,14 +17,15 @@ class TeachersController < ApplicationController
     end
 
     def show
-        @user = Teacher.find(session[:teacher_id])
+        @teacher = Teacher.find(session[:teacher_id])
+        @student = Student.all
     end
 
     def logout
         puts "Destroy Teacher method is called"
         #Student.find(session[:student_id]).destroy
         #session.delete(:student_id)
-        session[:student_id] = nil
+        session[:teacher_id] = nil
         redirect_to exit_path
     end
 

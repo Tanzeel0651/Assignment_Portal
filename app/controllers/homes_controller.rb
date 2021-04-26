@@ -19,10 +19,12 @@ class HomesController < ApplicationController
         end
     end
     
-    # def create    
-    # end
+    def show
+        @total_questions = Corpu.all.count    
+    end
 
     def welcome
+        session[:student_id] = nil
     end
     def exit
     end
@@ -36,7 +38,7 @@ class HomesController < ApplicationController
             #redirect_to '/show'
             redirect_to '/teachers/show'   
         else      
-            redirect_to '/login_teacher'
+            redirect_to login__path, :notice => "Wrong Email Id or Password"
         end
     end
 
@@ -45,6 +47,6 @@ class HomesController < ApplicationController
         #Student.find(session[:student_id]).destroy
         #session.delete(:student_id)
         session[:student_id] = nil
-        redirect_to '/homes/logout'
+        redirect_to '/homes/welcome'
     end
 end

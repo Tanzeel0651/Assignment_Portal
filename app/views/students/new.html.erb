@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1>Student Sign Up</h1>
 <%= form_for @student do |f|%> 
 <%= f.label :first_name%><br> 
 <%= f.text_field :first_name%><br> 
@@ -9,6 +9,9 @@
 <%= f.label :Email%><br>  
 <%= f.text_field :email_id%><br>  
 <%= f.label :"password"%><br>  
-<%= f.password_field :password%><br>  
-<%= f.submit %>
+<%= f.password_field :password%><br> 
+<br /> 
+<%= f.submit :Submit %>
 <%end%>
+<br />
+<%= button_to "Back", welcome_path, method: :delete %>

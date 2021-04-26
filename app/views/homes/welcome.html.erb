@@ -1,14 +1,18 @@
-<h1>Welcome</h1>
+<h1 align = 'center'>Assessment Center</h1>
 <% if logged_in? %>    
 	<h1>You are Logged In, <%= current_user.first_name %></h1>
 <%end%>
 
-
-<h2 align='Left'> Login As : </h2>
-<%= button_to "Student", '/login', method: :get%>
-<br />
-<%= button_to "Teacher", '/login_', method: :get%>
-<h2 align='Left'> Sign Up As : </h2>
-<%= button_to "Student", '/students/new', method: :get%>
-<br />
-<%= button_to "Teacher", '/teachers/new', method: :get%>
+<table width=40%>
+	<th align="left"><h2> Login : </h2></th>
+	<tr>
+		<td align="center"><%= button_to "Student", '/login', method: :get%></td>
+		<td><%= button_to "Teacher", '/login_', method: :get%></td>
+	</tr>
+	
+	<th align="left"><h2> Sign Up  : </h2></th>
+	<tr>
+		<td align="center"><%= button_to "Student", '/students/new', method: :get%></td>
+		<td><%= button_to "Teacher", '/teachers/new', method: :get%></td>
+	</tr>
+</table>

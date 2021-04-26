@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'login_', to: 'homes#new_teacher'
   post 'login_', to: 'homes#login_teacher'
   get 'welcome', to: 'homes#welcome'
+  delete 'welcome', to: 'homes#welcome'
   get 'authorized', to: 'homes#page_requires_login'
   get 'show', to: 'students#show'
   post 'teacher', to: 'teachers#show'

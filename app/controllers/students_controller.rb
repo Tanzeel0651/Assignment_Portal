@@ -19,12 +19,10 @@ class StudentsController < ApplicationController
     def show
         @user = Student.find(session[:student_id])
         @assign = Corpu.all
-        @count = 1
+        #@count = 1
     end
 
     def checker
-        puts
-        puts
         score = 0
         res = params[:name]
         @assign = Corpu.all
@@ -37,17 +35,10 @@ class StudentsController < ApplicationController
                 score += 10
             end
         end
-        puts "ans: ", ans
-        puts "res: ", res
-        puts "score: ", score
         @student = Student.find(session[:student_id])
         @student.update_column(:score, score)
-        puts
-        puts
         redirect_to '/homes/logout'
     end
-    # def logout  
-    # end
 
     private
     def user_params
