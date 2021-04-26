@@ -18,8 +18,34 @@ class StudentsController < ApplicationController
 
     def show
         @user = Student.find(session[:student_id])
+        @assign = Corpu.all
+        @count = 1
     end
 
+    def checker
+        puts
+        puts
+        score = 0
+        res = params[:name]
+        @assign = Corpu.all
+        ans = {}
+        @assign.each do |a|
+            ans = ans.merge({"#{a.id}" => a.answer})
+        end
+        res.each do |id, choice|
+            if ans[id] == choice
+                score += 10
+            end
+        end
+        puts "ans: ", ans
+        puts "res: ", res
+        puts "score: ", score
+        @student = Student.find(session[:student_id])
+        @student.update_column(:score, score)
+        puts
+        puts
+        redirect_to '/homes/logout'
+    end
     # def logout  
     # end
 

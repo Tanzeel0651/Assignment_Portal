@@ -3,4 +3,5 @@ class Student < ApplicationRecord
     #params.require(:student).permit(:first_name,:last_name,:email_id,:password_digest)
     validates :email_id, presence: true, uniqueness: true
     validates :password, presence: true
+    #has_many :corpus
 end

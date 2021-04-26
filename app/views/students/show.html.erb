@@ -1,4 +1,21 @@
-<h2>Welcome to the page of <%= @user.first_name %></h2>
-<h3>This is my page!!!</h3>
+<h1 align="center">Exam Portal</h1>
+<div align="right">
+<h3>Name: <%= @user.first_name%> <%= @user.last_name %></h3>
+<h4>Roll Number: <%= @user.roll_no %></h4>
+</div>
+<%=form_tag :checker, method: :get do %>
+    <p>
+    <% @assign.each do |a| %>
+        <h2><%= a.question %></h2>
+        <%= check_box_tag "name[#{a.id}]", "True", @tags %>
+        <%= label_tag 'True' %>
+        <%= check_box_tag "name[#{a.id}]", "False", @tags %>
+        <%= label_tag 'False' %>  
+        <br />
+        <br />
+    <%end%>
+    </p><br />
+    <h2 align="center"><%= submit_tag "Submit"%></h2> 
+<% end %>
+<br />
 
-<h1>Welcome to the exam</h1>
