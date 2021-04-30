@@ -1,0 +1,9 @@
+<h1> Thank You for taking the exam </h1>
+<div align="right">
+<h3>Name: <%= @student.first_name.capitalize%> <%= @student.last_name.capitalize %></h3>
+<h4>Roll Number: <%= @student.id %></h4>
+</div>
+<br />
+<br />
+<h2 align="center">Your Score: <%=@student.score %></h2>
+<h3 align="center">Total Score: <%=@total_questions*10 %></h3>

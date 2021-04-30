@@ -1,0 +1,22 @@
+<h1 align="center"> Exam Portal </h1>
+<div align="right">
+<h3>Name: <%= @student.first_name.capitalize%> <%= @student.last_name.capitalize %></h3>
+<h4>Roll Number: <%= @student.id %></h4>
+</div>
+<% @count = 1 %>
+<%=form_tag :checker, method: :get do %>
+    <p>
+    <% @assign.each do |a| %>
+        <h2><%= @count %>. <%= a.question %></h2>
+        <%= check_box_tag "name[#{a.id}]", "True", @tags %>
+        <%= label_tag 'True' %>
+        <%= check_box_tag "name[#{a.id}]", "False", @tags %>
+        <%= label_tag 'False' %>  
+        <br />
+        <br />
+        <% @count += 1 %>
+    <%end%>
+    </p><br />
+    <h2 align="center"><%= submit_tag "Submit"%></h2> 
+<% end %>
+<br />

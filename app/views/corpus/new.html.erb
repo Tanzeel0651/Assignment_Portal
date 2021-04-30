@@ -1,0 +1,17 @@
+<h1>Add a new Question</h1>
+<%= form_for @corpus do |f| %>
+    <p>
+        <h2><%= f.label :question %></h2>
+        <%= f.text_area :question %><br />
+    </p>
+    <br />
+    <p>
+        <h2><%= f.label :answer %></h2>
+        <%= f.text_area :answer %><br />
+    </p>
+
+    <p><h2><%= f.submit "Submit" %></h2></p>
+    <br />
+    <br />
+<% end %>
+<%= button_to "Back", report_portal_path%>
